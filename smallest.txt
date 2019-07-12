@@ -1,0 +1,19 @@
+fn main() {
+    let n = vec![10, 20, 30, 5, 45];
+    let result = smallest(&n);
+    println!("the smallest number is {}", result);
+    let m=vec![100,500,20,300,800];
+    let top=smallest(&m);
+    println!("smallest number is {}",top);
+}
+fn smallest(p:&[i32])->i32
+{
+
+    let mut small = p[0];
+    for  &i in p.iter(){
+        if  i < small {
+            small = i;
+        }
+    }
+    small
+}

@@ -1,0 +1,23 @@
+struct Team<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Team<T> {
+    fn x(&self) -> &T {
+        &self.x
+    }
+}
+impl<T> Team<T> {
+    fn y(&self) -> &T {
+        &self.y
+    }
+}
+
+fn main() {
+    let o = Team { x:5,y:10 };
+    let n=Team{x:10,y:15};
+
+    println!(" {} {} ", o.x(),o.y());
+    println!("{} {} ",n.x(),n.y());
+}

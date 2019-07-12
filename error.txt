@@ -1,0 +1,20 @@
+use std::fs::File;
+use std::io::ErrorKind;
+
+
+fn main(){
+    let f=File::open("/home/knoldus/sagargupta/src/hello2.txt");
+    let v = match f {
+        Ok(file) => file,
+        Err(error) => match error.kind() {
+            ErrorKind::NotFound => match File::create("/home/knoldus/sagargupta/src/hello2.txt") {
+             Ok(file)=>file,
+                Err(error)=>panic!("file not open  {:?}",error),
+
+
+            },
+            other_error=>panic!("problem open  {:?}",other_error),
+        },
+    };
+
+}
